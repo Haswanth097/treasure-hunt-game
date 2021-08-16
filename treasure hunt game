@@ -1,0 +1,93 @@
+def lets_play_again():
+    print("Do you want to play again?(y or n)")
+    answer=input(">").lower()
+    if answer=="y":
+        print(start())
+    else:
+        quit()
+
+
+def game_over(reason):
+    print(f"{reason}\nGame Over!")
+
+def start():
+    print("you are standing in a dark room.")
+    print("There is a door to your left and right,which one do you take?(l or r)")
+    answer=input(">").lower()
+    if answer=="l":
+        def snake_room():
+            print("\nThere is a snake here."
+                  "\nBehind the Snake is another door."
+              "\nThe snake is having eggs!"
+              "\nWhat would you do?(1 or 2)"
+              "\n1). Take the eggs."
+              "\n2). Taunt the snake.")
+        snake_room()
+        answer=input(">").lower()
+        if answer=="1":
+            reason=(f"You want eggs not the treasure!!!Thats why the snake killed you.")
+            game_over(reason)
+            lets_play_again()
+        
+        elif answer=="2":
+            def treasure_room():
+                print("\nYou are now in a room filled with diamonds!"
+                      "\nAnd there is a door too!"
+                      "\nWhat would you do?(1 or 2)"
+                      "\n1). Take some diamond and go through the door."
+                      "\n2). Just go through the door.")
+            treasure_room()
+            answer=input(">").lower()
+            if answer=="1":
+                print("YAY!!!WIN")
+                lets_play_again()
+            
+            else:
+                reason=(f"You did not take the diamonds")
+                game_over(reason)
+                lets_play_again()
+        else:
+            reason=(f"Invalid input")
+            game_over(reason)
+            lets_play_again()
+        
+    elif answer=="r":
+        def monster_room():
+            print("\nNow you entered the room of a monster!"
+                  "\nThe monster is sleeping.\nBehind the monster, there is another door.What would you do?(1 or 2)"
+                  "\n1).Go through the door silently."
+                  "\n2).Kill the monster and show your courage!")
+        monster_room()
+        answer=input(">").lower()
+        if answer=="1":
+             def treasure_room():
+                print("\nYou are now in a room filled with diamonds!"
+                      "\nAnd there is a door too!"
+                      "\nWhat would you do?(1 or 2)"
+                      "\n1). Take some diamond and go through the door."
+                      "\n2). Just go through the door.")
+                
+             treasure_room()
+             answer=input(">").lower()
+             if answer=="1":
+                 print("YAY!!!WIN")
+                 lets_play_again()
+            
+             else:
+                 reason=(f"You did not take the diamonds")
+                 game_over(reason)
+                 lets_play_again()
+        elif answer=="2":
+            reason=(f"The monster was hungry,he/it ate you.")
+            game_over(reason)
+            lets_play_again()
+        else:
+            reason=(f"Invalid input")
+            game_over(reason)
+            lets_play_again()
+    else:
+        reason=(f"Invalid input")
+        game_over(reason)
+        lets_play_again()
+    
+start()
